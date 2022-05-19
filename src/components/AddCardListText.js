@@ -1,4 +1,4 @@
-import {Button, IconButton, InputBase, makeStyles, Paper} from "@material-ui/core";
+import {Button, fade, IconButton, InputBase, makeStyles, Paper} from "@material-ui/core";
 import React, { useState } from 'react';
 import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
@@ -18,10 +18,12 @@ const AddCardListText = () => {
                 />
             </Paper>
             <div className={classes.confirm}>
-                <Button>Añadir tarjeta</Button>
-                <IconButton>
-                    <ClearIcon/>
-                </IconButton>
+                <div className={classes.contentConfirm}>
+                <Button className={classes.btnConfirm}>Añadir tarjeta</Button>
+                    <IconButton>
+                        <ClearIcon/>
+                    </IconButton>
+                </div>
                 <IconButton>
                     <MoreHorizIcon/>
                 </IconButton>
@@ -36,6 +38,20 @@ const uneStyle = makeStyles(theme => ({
     },
     input: {
         margin: theme.spacing(1)
+    },
+    confirm: {
+        display: "flex",
+        margin: theme.spacing(0,1,1,1)
+    },
+    contentConfirm: {
+        flexGrow: 1,
+    },
+    btnConfirm: {
+        background: "#19ad9f",
+        color: "#fff",
+        "&:hover": {
+            backgroundColor: fade("#19ad9f", 0.75)
+        }
     }
 }))
 
