@@ -1,16 +1,30 @@
 import './App.css';
 import TrelloList from "./components/TrelloList";
+import AddCardListText from "./components/AddCardListText";
 import Logo from "./assets/img/logo-app.png";
+import {fade, makeStyles} from "@material-ui/core";
 
 function App() {
+  const classes = uneStyle();
   return (
     <div className="App">
       <header>
           <img src={Logo}/>
       </header>
-      <TrelloList></TrelloList>
+        <div className={classes.container}>
+            <TrelloList></TrelloList>
+            <TrelloList></TrelloList>
+            <TrelloList></TrelloList>
+            <AddCardListText type="list"/>
+        </div>
     </div>
   );
 }
+
+const uneStyle = makeStyles(theme => ({
+    container: {
+        display: "flex",
+    }
+}))
 
 export default App;

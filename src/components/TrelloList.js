@@ -10,14 +10,16 @@ const TrelloList = () => {
       <CssBaseline/>
         <ListTitle></ListTitle>
         <TrelloCard></TrelloCard>
-        <AddCardList></AddCardList>
+        <TrelloCard></TrelloCard>
+        <TrelloCard></TrelloCard>
+        <AddCardList type="card"></AddCardList>
     </Paper>
   )
 }
 
 const uneStyle = makeStyles(theme => ({
   root: {
-    maxWidth: "300px",
+    minWidth: "300px",
     backgroundColor: "#ebecf0",
     margin: theme.spacing(1),
     padding: "10px",

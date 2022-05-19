@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
-const AddCardListText = () => {
+const AddCardListText = ({type}) => {
     const classes = uneStyle();
     const [title, setTitle] = useState("")
     return (
@@ -34,7 +34,7 @@ const AddCardListText = () => {
 
 const uneStyle = makeStyles(theme => ({
     newCard: {
-        paddingBottom: theme.spacing(4)
+        paddingBottom: theme.spacing(4),
     },
     input: {
         margin: theme.spacing(1)
