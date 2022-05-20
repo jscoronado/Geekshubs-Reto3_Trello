@@ -3,7 +3,7 @@ import { useState } from "react"
 import AddCardListText from "./AddCardListText";
 
 const AddCardList = (type) => {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const classes = uneStyle();
     return (
         <div className={classes.root}>

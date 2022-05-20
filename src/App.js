@@ -1,6 +1,6 @@
 import './App.css';
 import TrelloList from "./components/TrelloList";
-import AddCardListText from "./components/AddCardListText";
+import AddCardList from "./components/AddCardList";
 import Logo from "./assets/img/logo-app.png";
 import {fade, makeStyles} from "@material-ui/core";
 
@@ -15,7 +15,7 @@ function App() {
             <TrelloList></TrelloList>
             <TrelloList></TrelloList>
             <TrelloList></TrelloList>
-            <AddCardListText type="list"/>
+            <AddCardList type="list"/>
         </div>
     </div>
   );

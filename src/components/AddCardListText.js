@@ -12,14 +12,25 @@ const AddCardListText = ({type}) => {
                 <InputBase
                     value={title}
                     onChange={e=>setTitle(e.target.value)}
-                    placeholder="Introduzca un título para esta tarjeta..."
+                    placeholder=
+                    {
+                        type === "card"
+                            ?"Introduce un título para esta tarjeta"
+                            : "Introduce un título de lista"
+                    }
                     inputProps = {{className: classes.input}}
                     multiline
                 />
             </Paper>
             <div className={classes.confirm}>
                 <div className={classes.contentConfirm}>
-                <Button className={classes.btnConfirm}>Añadir tarjeta</Button>
+                <Button className={classes.btnConfirm}>
+                    {
+                        type === "card"
+                            ?"Añadir Tarjeta"
+                            : "Añadir Lista"
+                    }
+                </Button>
                     <IconButton>
                         <ClearIcon/>
                     </IconButton>
