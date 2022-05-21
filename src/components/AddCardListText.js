@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
-const AddCardListText = ({type}) => {
+const AddCardListText = ({type, setOpen}) => {
     const classes = uneStyle();
     const [title, setTitle] = useState("")
     return (
@@ -11,12 +11,13 @@ const AddCardListText = ({type}) => {
             <Paper className={classes.newCard}>
                 <InputBase
                     value={title}
+                    onBlur={()=>setOpen(false)}
                     onChange={e=>setTitle(e.target.value)}
                     placeholder=
                     {
                         type === "card"
-                            ?"Introduce un título para esta tarjeta"
-                            : "Introduce un título de lista"
+                            ?"Introduce un título para esta tarjeta..."
+                            : "Introduce un título de lista..."
                     }
                     inputProps = {{className: classes.input}}
                     multiline
@@ -31,7 +32,7 @@ const AddCardListText = ({type}) => {
                             : "Añadir Lista"
                     }
                 </Button>
-                    <IconButton>
+                    <IconButton onClick={() => setOpen(false)} >
                         <ClearIcon/>
                     </IconButton>
                 </div>

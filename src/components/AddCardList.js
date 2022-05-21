@@ -2,16 +2,16 @@ import {Collapse, fade, makeStyles, Paper, Typography} from "@material-ui/core";
 import { useState } from "react"
 import AddCardListText from "./AddCardListText";
 
-const AddCardList = (type) => {
-    const [open, setOpen] = useState(false)
+const AddCardList = ({type}) => {
+    const [open, setOpen] = useState(true)
     const classes = uneStyle();
     return (
         <div className={classes.root}>
             <Collapse in={open}>
-                <AddCardListText type={type}></AddCardListText>
+                <AddCardListText type={type} setOpen={setOpen}></AddCardListText>
             </Collapse>
             <Collapse in={!open}>
-                <Paper className = {classes.addCardListText}>
+                <Paper className={classes.addCardListText} onClick={() => setOpen(true)}>
                     <Typography>
                         {
                             type === "card" ? "+ Añadir tarjeta" : "+ Añadir nueva lista"
