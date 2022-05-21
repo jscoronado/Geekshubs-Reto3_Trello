@@ -8,7 +8,7 @@ const TrelloList = ({list}) => {
   return (
     <Paper className = {classes.root}>
       <CssBaseline/>
-        <ListTitle></ListTitle>
+        <ListTitle title={list.title} listId={list.id}/>
 
         {
           list.cards.map(card => (
