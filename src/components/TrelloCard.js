@@ -1,10 +1,10 @@
-import {Paper, CssBaseline, makeStyles} from "@material-ui/core";
+import {Paper, makeStyles} from "@material-ui/core";
 
-const TrelloCard = () => {
+const TrelloCard = ({card}) => {
     const classes = uneStyle();
     return (
         <Paper className={classes.trelloCard}>
-            <h3>Tarjeta</h3>
+            <h3>{card.title}</h3>
         </Paper>
     )
 }
