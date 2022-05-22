@@ -7,6 +7,7 @@ import dataApp from "./dataApp";
 import {useState} from "react";
 import ContextAPI from "./ContextAPI";
 import uuid from "react-uuid";
+import {DragDropContext, Droppable} from "react-beautiful-dnd"
 
 function App() {
   const classes = uneStyle();
