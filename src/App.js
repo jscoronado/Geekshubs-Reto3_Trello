@@ -56,8 +56,11 @@ function App() {
           <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId="jrello_app" type="list" direction="horizontal">
                   {
-                    () => (
-                        <div className={classes.container}>
+                    (provided) => (
+                        <div className={classes.container}
+                             ref={provided.innerRef}
+                             {...provided.droppableProps}
+                        >
 
                             {
                                 data.listIds.map(listID => {
@@ -67,6 +70,7 @@ function App() {
                             }
 
                             <AddCardList type="list"/>
+                            {provided.placeholder}
                         </div>
                     )
                   }
