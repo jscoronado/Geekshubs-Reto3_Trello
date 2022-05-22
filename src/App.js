@@ -12,7 +12,11 @@ function App() {
   const [data, setData] = useState(dataApp);
   console.log(data)
   const updateListTitle = (updatedTitle, listId) => {
-    const list = data.lists[listId]
+      const list = data.lists[listId]
+      list.title = updatedTitle
+      setData({
+          ...data, lists: { ...data.lists, [listId] : list }
+      })
   }
 
   return (
