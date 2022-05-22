@@ -45,23 +45,34 @@ function App() {
     })
   }
 
+  const onDragEnd = () => {}
+
   return (
       <ContextAPI.Provider value={{updateListTitle, addCard, addList}}>
         <div className="App">
           <header>
               <img src={Logo}/>
           </header>
-            <div className={classes.container}>
+          <DragDropContext onDragEnd={onDragEnd}>
+              <Droppable droppableId="jrello_app" type="list" direction="horizontal">
+                  {
+                    () => (
+                        <div className={classes.container}>
 
-                {
-                    data.listIds.map(listID => {
-                        const list = data.lists[listID]
-                        return <TrelloList list={list} key={listID}/>
-                    })
-                }
+                            {
+                                data.listIds.map(listID => {
+                                    const list = data.lists[listID]
+                                    return <TrelloList list={list} key={listID}/>
+                                })
+                            }
 
-                <AddCardList type="list"/>
-            </div>
+                            <AddCardList type="list"/>
+                        </div>
+                    )
+                  }
+
+              </Droppable>
+          </DragDropContext>
         </div>
       </ContextAPI.Provider>
   );
