@@ -1,11 +1,18 @@
 import {InputBase, makeStyles, Typography} from "@material-ui/core";
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
-import {useState} from "react";
+import {useContext, useState} from "react";
+import ContextAPI from "../ContextAPI";
 
 const ListTitle = ({title, listId}) => {
     const classes = uneStyle();
     const [open, setOpen] = useState(true);
     const [newTitle, setNewTitle] = useState(title);
+    const {updateListTitle} = useContext(ContextAPI);
+
+    const updateTitle = () => {
+        updateListTitle(newTitle, listId)
+        setOpen(false)
+    }
     return (
 
         <>
@@ -15,11 +22,12 @@ const ListTitle = ({title, listId}) => {
                     onChange={e=>setNewTitle(e.target.value)}
                     autoFocus
                     fullWidth
+                    onBlur={updateTitle}
                     inputProps={{className: classes.input}}
                 />
             ) : (
                 <div className={classes.title}>
-                    <Typography className={classes.titleText}>
+                    <Typography className={classes.titleText} onClick={() => setOpen(true)}>
                         <h3>{title}</h3>
                     </Typography>
                     <MoreHorizIcon/>

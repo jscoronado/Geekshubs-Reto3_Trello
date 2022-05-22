@@ -5,28 +5,35 @@ import Logo from "./assets/img/logo-app.png";
 import {fade, makeStyles} from "@material-ui/core";
 import dataApp from "./dataApp";
 import {useState} from "react";
+import ContextAPI from "./ContextAPI";
 
 function App() {
   const classes = uneStyle();
   const [data, setData] = useState(dataApp);
-    console.log(data)
+  console.log(data)
+  const updateListTitle = (updatedTitle, listId) => {
+    const list = data.lists[listId]
+  }
+
   return (
-    <div className="App">
-      <header>
-          <img src={Logo}/>
-      </header>
-        <div className={classes.container}>
+      <ContextAPI.Provider value={{updateListTitle}}>
+        <div className="App">
+          <header>
+              <img src={Logo}/>
+          </header>
+            <div className={classes.container}>
 
-            {
-                data.listIds.map(listID => {
-                    const list = data.lists[listID]
-                    return <TrelloList list={list} key={listID}/>
-                })
-            }
+                {
+                    data.listIds.map(listID => {
+                        const list = data.lists[listID]
+                        return <TrelloList list={list} key={listID}/>
+                    })
+                }
 
-            <AddCardList type="list"/>
+                <AddCardList type="list"/>
+            </div>
         </div>
-    </div>
+      </ContextAPI.Provider>
   );
 }
 
