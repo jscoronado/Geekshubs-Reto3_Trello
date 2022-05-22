@@ -6,6 +6,7 @@ import {fade, makeStyles} from "@material-ui/core";
 import dataApp from "./dataApp";
 import {useState} from "react";
 import ContextAPI from "./ContextAPI";
+import uuid from "react-uuid";
 
 function App() {
   const classes = uneStyle();
@@ -19,11 +20,21 @@ function App() {
       })
   }
 
-  const addCard = () => {
+  const addCard = (title, listId) => {
+    const newCardId = uuid();
+    const newCard = {
+        id: newCardId,
+        title: title,
+    }
+    const list = data.lists[listId]
+    list.cards = [...list.cards, newCard]
 
+    setData({
+        ...data, lists: {...data.lists, [listId] : list}
+    })
   }
 
-  const addList = () => {
+  const addList = (title) => {
 
   }
 
