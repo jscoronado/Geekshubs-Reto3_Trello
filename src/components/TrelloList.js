@@ -11,8 +11,8 @@ const TrelloList = ({list}) => {
         <ListTitle title={list.title} listId={list.id}/>
 
         {
-          list.cards.map(card => (
-              <TrelloCard card={card} key={card.id}/>
+          list.cards.map((card, index) => (
+              <TrelloCard card={card} key={card.id} index={index}/>
           ))
         }
 
