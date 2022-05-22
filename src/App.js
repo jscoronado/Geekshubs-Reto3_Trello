@@ -35,7 +35,13 @@ function App() {
   }
 
   const addList = (title) => {
-
+    const newListId = uuid();
+    setData({
+        listIds: [...data.listIds, newListId],
+        lists: {
+            ...data.lists, [newListId]: { id: newListId, title: title, cards: [] }
+        }
+    })
   }
 
   return (
