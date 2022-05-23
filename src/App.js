@@ -58,6 +58,20 @@ function App() {
           newListIds.splice(destIndex, 0, draggableId)
           return;
       }
+
+      const sourceList = data.lists[sourceDroppableId]
+      const destinationList = data.lists[destDroppableId]
+      const draggingCard = sourceList.cards.filter((card) => card.id === draggableId)
+
+      if(sourceDroppableId === destDroppableId) {
+          sourceList.cards.splice(sourceIndex, 1)
+          destinationList.cards.splice(destIndex, 0, draggingCard)
+
+          setData({
+              ...data, lists: {...data.lists, [sourceList.id] : destinationList}
+          })
+      }
+
   }
 
   return (
