@@ -45,7 +45,20 @@ function App() {
     })
   }
 
-  //const onDragEnd = () => {}
+  const onDragEnd = (result) => {
+      const {destination, destination : {droppableId : destDroppableId, index : destIndex}, source, source : {droppableId: sourceDroppableId, index : sourceIndex}, draggableId, type} = result
+
+      if(!destination) {
+          return;
+      }
+
+      if(type === "list") {
+          const newListIds = data.listIds
+          newListIds.splice(sourceIndex, 1)
+          newListIds.splice(destIndex, 0, draggableId)
+          return;
+      }
+  }
 
   return (
       <ContextAPI.Provider value={{updateListTitle, addCard, addList}}>
@@ -53,7 +66,7 @@ function App() {
           <header>
               <img src={Logo}/>
           </header>
-          <DragDropContext >
+          <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId="droppable" type="list" direction="horizontal">
                   {
                     (provided) => (

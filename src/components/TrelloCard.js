@@ -7,9 +7,9 @@ const TrelloCard = ({card, index}) => {
         <Draggable draggableId={card.id} index={index}>
             {
                 (provided) => (
-                    <div ref={provided.innerRef}
-                         {...provided.draggableProps}
+                    <div {...provided.draggableProps}
                          {...provided.dragHandleProps}
+                         ref={provided.innerRef}
                     >
                         <Paper className={classes.trelloCard}>
                             <h3>{card.title}</h3>
