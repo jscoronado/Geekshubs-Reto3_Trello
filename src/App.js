@@ -2,7 +2,7 @@ import './App.css';
 import TrelloList from "./components/TrelloList";
 import AddCardList from "./components/AddCardList";
 import Logo from "./assets/img/logo-app.png";
-import {fade, makeStyles} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core";
 import dataApp from "./dataApp";
 import {useState} from "react";
 import ContextAPI from "./ContextAPI";
@@ -45,7 +45,7 @@ function App() {
     })
   }
 
-  const onDragEnd = () => {}
+  //const onDragEnd = () => {}
 
   return (
       <ContextAPI.Provider value={{updateListTitle, addCard, addList}}>
@@ -53,8 +53,8 @@ function App() {
           <header>
               <img src={Logo}/>
           </header>
-          <DragDropContext onDragEnd={onDragEnd}>
-              <Droppable droppableId="jrello_app" type="list" direction="horizontal">
+          <DragDropContext >
+              <Droppable droppableId="droppable" type="list" direction="horizontal">
                   {
                     (provided) => (
                         <div className={classes.container}
