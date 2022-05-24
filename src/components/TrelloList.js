@@ -1,27 +1,27 @@
-import {Paper, CssBaseline, makeStyles} from "@material-ui/core";
+import { Paper, Typography, CssBaseline } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import ListTitle from "./ListTitle";
 import TrelloCard from "./TrelloCard";
 import AddCardList from "./AddCardList";
-import {Draggable, Droppable} from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 const TrelloList = ({list, index}) => {
-  const classes = uneStyle();
+  const classes = useStyle();
   return (
     <Draggable draggableId={list.id} index={index}>
       {
         (provided) => (
-            <div {...provided.draggableProps} ref={provided.innerRef}
-            >
+            <div {...provided.draggableProps} ref={provided.innerRef} >
               <Paper className = {classes.root} {...provided.dragHandleProps}>
                 <CssBaseline/>
                 <ListTitle title={list.title} listId={list.id}/>
                 <Droppable droppableId={list.id}>
                   {
                     (provided) => (
-                        <div {...provided.droppableProps} ref={provided.innerRef}>
+                        <div ref={provided.innerRef} {...provided.droppableProps} className={classes.cardContainer}>
                           {
                             list.cards.map((card, index) => (
-                                <TrelloCard card={card} key={card.id} index={index}/>
+                                <TrelloCard key={card.id} card={card} index={index}/>
                             ))
                           }
                           {provided.placeholder}
@@ -41,13 +41,16 @@ const TrelloList = ({list, index}) => {
   )
 }
 
-const uneStyle = makeStyles(theme => ({
+const useStyle = makeStyles(theme => ({
   root: {
     minWidth: "300px",
-    backgroundColor: "#ebecf0",
+    backgroundColor: "rgba(255, 255, 255, 0.66)",
     margin: theme.spacing(1),
     padding: "10px",
-  }
+  },
+  cardContainer: {
+    marginTop: theme.spacing(4),
+  },
 }))
 
 export default TrelloList

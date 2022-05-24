@@ -1,4 +1,4 @@
-import {Collapse, fade, makeStyles, Paper, Typography} from "@material-ui/core";
+import {Collapse, alpha, makeStyles, Paper, Typography} from "@material-ui/core";
 import { useState } from "react"
 import AddCardListText from "./AddCardListText";
 
@@ -38,7 +38,7 @@ const uneStyle = makeStyles(theme => ({
         backgroundColor: "#ebecf0",
         cursor: "pointer",
         "&:hover": {
-            backgroundColor: fade("#000", 0.1)
+            backgroundColor: alpha("#000", 0.1)
         }
     }
 }))

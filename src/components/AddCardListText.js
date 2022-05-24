@@ -1,4 +1,4 @@
-import {Button, fade, IconButton, InputBase, makeStyles, Paper} from "@material-ui/core";
+import {Button, alpha, IconButton, InputBase, makeStyles, Paper} from "@material-ui/core";
 import React, {useContext, useState} from 'react';
 import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
@@ -72,7 +72,7 @@ const uneStyle = makeStyles(theme => ({
         background: "#19ad9f",
         color: "#fff",
         "&:hover": {
-            backgroundColor: fade("#19ad9f", 0.75)
+            backgroundColor: alpha("#19ad9f", 0.75)
         }
     }
 }))
