@@ -16,21 +16,23 @@ code {
     monospace;
 }
 
-.App {
+#root > div {
   min-width: 100vw;
   min-height: 100vh;
   background-image: url('./assets/img/fondo-app.jpg');
   background-size: cover;
   background-position: center;
-  background: #ebecf0;
   overflow: scroll;
 }
+
 header {
-  background: #ffffff;
-  box-shadow: 0 0 15px #cbcbcb;
-  text-align: center;
+  width: 100%;
+  position: fixed;
   padding: 5px 15px;
+  text-align: center;
+  background: rgba(150, 150, 146, 0.45);
+  box-shadow: 0 0 15px #cbcbcb;
 }
 header img {
-  height: 36px;
+  height: 24px;
 }
